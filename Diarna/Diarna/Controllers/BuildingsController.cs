@@ -16,11 +16,13 @@ namespace Diarna.Controllers
     public class BuildingsController : ControllerBase
     {
         private readonly IBuildingRepo _repo;
+        private readonly IVillageRepo _villageRepo;
         private readonly IMapper _mapper;
-        public BuildingsController(IBuildingRepo _repo, IMapper _mapper)
+        public BuildingsController(IBuildingRepo _repo, IMapper _mapper, IVillageRepo villageRepo)
         {
             this._repo = _repo;
             this._mapper = _mapper;
+            _villageRepo = villageRepo;
         }
 
         [HttpGet(Name = "GetAllBuildings")]
@@ -42,6 +44,16 @@ namespace Diarna.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBuilding([FromBody] CreateBuildingDto buildingDto)
         {
+            //find village first 
+            var village = await _villageRepo.GetVillageById(buildingDto.VillageId?? 0);
+            if (village == null)
+                return StatusCode(500, "No Village Exist");
+
+            //check for building name 
+            var building = await _repo.GetBuildingByName(buildingDto.Name);
+            if (building != null)
+                return StatusCode(500, "Building Name is Already Exist");
+
             var result = await _repo.AddBuilding(_mapper.Map<TblBuilding>(buildingDto));
             var mapper = _mapper.Map<ReadBuildingDto>(result);
             if (mapper != null)
@@ -60,7 +72,20 @@ namespace Diarna.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> EditBuilding(int id, [FromBody] CreateBuildingDto buildingDto)
         {
+            //find village first 
+            var village = await _villageRepo.GetVillageById(buildingDto.VillageId ?? 0);
+            if (village == null)
+                return StatusCode(500, "No Village Exist");
+
             var resultReturned = await _repo.GetBuildingById(id);
+            if (resultReturned == null)
+                return StatusCode(500, "NO Building Exist"); 
+
+            //check for building name 
+            var building = await _repo.GetBuildingByName(buildingDto.Name);
+            if (building != null && building.Id != resultReturned.Id)
+                return StatusCode(500, "Building Name is Already Exist");
+
             _mapper.Map(buildingDto, resultReturned);
             var result = await _repo.EditBuilding(resultReturned);
             var mapper = _mapper.Map<ReadBuildingDto>(result);

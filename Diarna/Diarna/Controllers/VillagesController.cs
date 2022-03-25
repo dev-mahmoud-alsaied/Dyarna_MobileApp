@@ -42,6 +42,11 @@ namespace Diarna.Controllers
         [HttpPost]
         public async Task<IActionResult> AddVillage([FromBody] CreateVillageDto villageDto)
         {
+            //check for village 
+            var village = await _repo.GetVillageByName(villageDto.Name);
+            if (village != null)
+                return StatusCode(500, "Village Name is Already Exist");
+
             var result = await _repo.AddVillage(_mapper.Map<TblVillage>(villageDto));
             var mapper = _mapper.Map<ReadVillageDto>(result);
             if (mapper != null)
@@ -61,7 +66,13 @@ namespace Diarna.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> EditVillage(int id, [FromBody] CreateVillageDto createVillageDto)
         {
+            
             var resultReturned = await _repo.GetVillageById(id);
+            //check for village 
+            var village = await _repo.GetVillageByName(createVillageDto.Name);
+            if (village != null && village.Id != resultReturned.Id)
+                return StatusCode(500, "Village Name is Already Exist");
+
             _mapper.Map(createVillageDto, resultReturned);
             var result = await _repo.EditVillage(resultReturned);
             var mapper = _mapper.Map<ReadVillageDto>(result);
