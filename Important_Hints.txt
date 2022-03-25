@@ -1,0 +1,3 @@
+01- this cloumn [shareType] added in table [tbl_shares] to determine user share type,
+	if rent user share value will be [1], if contracting user share value will be [2].
+	
