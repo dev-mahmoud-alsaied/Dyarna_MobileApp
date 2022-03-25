@@ -75,7 +75,7 @@ namespace Diarna.Services.Reposatories
 
         public async Task<IEnumerable<TblItem>> GetAllItemsWithGeneralExpenses()
         {
-            return await _context.TblItems.Where(x => x.GeneralExpenses == true).ToListAsync();
+            return await _context.TblItems.Where(x => x.GeneralExpenses == true).Include(x => x.Itemtype).ToListAsync();
         }
 
         public async Task<TblItem> GetItemById(int id)
