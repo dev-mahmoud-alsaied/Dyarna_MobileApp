@@ -43,7 +43,8 @@ namespace Diarna.Controllers
         public async Task<ActionResult> GetAllItemsWithGeneralExpenses()
         {
             var result = await _repo.GetAllItemsWithGeneralExpenses();
-            return Ok(result);
+            var mapper = _mapper.Map<IEnumerable<ReadItemDetailDto>>(result);
+            return Ok(mapper);
         }
 
         [HttpGet("{id:int}", Name = "GetItemById")]

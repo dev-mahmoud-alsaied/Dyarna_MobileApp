@@ -15,9 +15,9 @@ namespace Diarna.Profiles
             CreateMap<CreateItemDto, TblItem>();
             CreateMap<TblItem, ReadItemDto>();
             CreateMap<ReadItemDto, TblItem>();
-            CreateMap<TblItem,ReadItemDetailDto>()
+            CreateMap<TblItem, ReadItemDetailDto>()
                 .ForMember(dest => dest.ItemTypeName,
-                opt=> opt.MapFrom(src=>src.Itemtype.Name));
+                opt => opt.MapFrom(src => src.Itemtype.Name));
         }
     }
 }
