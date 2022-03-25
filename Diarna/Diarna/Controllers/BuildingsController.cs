@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Diarna.Services.Interfaces;
 using Diarna.Data.Domain;
 using AutoMapper;
-using Diarna.DTOs;
+using Diarna.DTOs.Building;
 
 namespace Diarna.Controllers
 {
