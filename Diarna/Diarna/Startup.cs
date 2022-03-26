@@ -40,7 +40,8 @@ namespace Diarna
             services.AddScoped<IItemTypeRepo,ItemTypeRepo>();
             services.AddScoped<IItemRepo, ItemRepo>();
             services.AddScoped<IRentedUnitRepo, RentedUnitRepo>();
-            services.AddScoped<IUpdateUnitDataRepo, UpdateUnitDataRepo>(); 
+            services.AddScoped<IUpdateUnitDataRepo, UpdateUnitDataRepo>();
+            services.AddScoped<IRentExpensesRepo, RentExpensesRepo>(); 
             services.AddScoped<IVillageRepo,VillageRepo>();
             services.AddScoped<IUnitRepo,UnitRepo>();
             services.AddScoped<IBuildingRepo,BuildingRepo>();
@@ -66,6 +67,9 @@ namespace Diarna
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Home}/{action=Index}/{id:int?}");
             });
         }
     }
