@@ -8,6 +8,7 @@ namespace Diarna.Services.Interfaces
     {
         Task<IEnumerable<TblVillage>> GetAllVillages();
         Task<TblVillage> GetVillageById(int id);
+        Task<TblVillage> GetVillageByName(string name);
         Task<TblVillage> AddVillage(TblVillage tblVillage);
         Task<TblVillage> EditVillage(TblVillage tblVillage);
         Task<bool> DeleteVillage(int id);

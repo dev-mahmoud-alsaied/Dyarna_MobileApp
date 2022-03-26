@@ -72,5 +72,10 @@ namespace Diarna.Services.Reposatories
         {
             return await _context.TblBuildings.SingleOrDefaultAsync(x => x.Id == id);
         }
+        
+        public async Task<TblBuilding> GetBuildingByName(string name)
+        {
+            return await _context.TblBuildings.SingleOrDefaultAsync(x => x.Name == name);
+        }
     }
 }
