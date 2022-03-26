@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Diarna.DTOs
+namespace Diarna.DTOs.Item
 {
     public class CreateItemDto
     {
