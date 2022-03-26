@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Diarna.DTOs
+namespace Diarna.DTOs.Item
 {
     public class ReadItemDto
     {

@@ -8,6 +8,7 @@ namespace Diarna.Services.Interfaces
     {
         Task<IEnumerable<TblBuilding>> GetAllBuildings();
         Task<TblBuilding> GetBuildingById(int id);
+        Task<TblBuilding> GetBuildingByName(string name);
         Task<TblBuilding> AddBuilding(TblBuilding tblBuilding);
         Task<TblBuilding> EditBuilding(TblBuilding tblBuilding);
         Task<bool> DeleteBuilding(int id);

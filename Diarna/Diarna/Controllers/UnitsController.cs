@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Diarna.Services.Interfaces;
 using Diarna.Data.Domain;
 using AutoMapper;
-using Diarna.DTOs; 
+using Diarna.DTOs.Unit; 
 
 namespace Diarna.Controllers
 {
@@ -17,12 +17,17 @@ namespace Diarna.Controllers
     {
         private readonly IUnitRepo _repo;
         private readonly IUpdateUnitDataRepo _updateRepo;
+        private readonly IBuildingRepo _buildingRepo;
         private readonly IMapper _mapper;
-        public UnitsController(IUnitRepo _repo, IMapper _mapper, IUpdateUnitDataRepo _updateRepo)
+        public UnitsController(IUnitRepo _repo, IMapper _mapper,
+            IUpdateUnitDataRepo _updateRepo,
+            IBuildingRepo buildingRepo
+            )
         {
             this._repo = _repo;
             this._mapper = _mapper;
             this._updateRepo = _updateRepo;
+            _buildingRepo = buildingRepo;
         }
 
         [HttpGet(Name = "GetAllUnits")]
@@ -44,6 +49,16 @@ namespace Diarna.Controllers
         [HttpPost]
         public async Task<IActionResult> AddUnit([FromBody] CreateUnitDto unitDto)
         {
+            //find building first 
+            var building = await _buildingRepo.GetBuildingById(unitDto.BuildingId ?? 0);
+            if (building == null)
+                return StatusCode(500, "building is not exist");
+
+            //check for name 
+            var unit = await _repo.GetUnitByName(unitDto.Name);
+            if (unit != null)
+                return StatusCode(500, "Unit Name is Already Exist");
+
             var result = await _repo.AddUnit(_mapper.Map<TblUnit>(unitDto));
             var mapper = _mapper.Map<ReadUnitDto>(result);
             if (mapper != null)
@@ -62,7 +77,20 @@ namespace Diarna.Controllers
         [HttpPut("{id:int}")]
         public async Task<IActionResult> EditUnit(int id, [FromBody] CreateUnitDto unitDto)
         {
+            //find building first 
+            var building = await _buildingRepo.GetBuildingById(unitDto.BuildingId ?? 0);
+            if (building == null)
+                return StatusCode(500, "building is not exist");
+
             var resultReturned = await _repo.GetUnitById(id);
+            if (resultReturned == null)
+                return StatusCode(500, "Unit is not exist");
+
+            //check for name exist 
+            var unit = await _repo.GetUnitByName(unitDto.Name);
+            if (unit != null && resultReturned.Id != unit.Id)
+                return StatusCode(500, "Unit Name is Already Exist");
+
             _mapper.Map(unitDto, resultReturned);
             var result = await _repo.EditUnit(resultReturned);
             var mapper = _mapper.Map<ReadUnitDto>(result);
@@ -82,7 +110,7 @@ namespace Diarna.Controllers
 
         [HttpPut("{id:int}")]
         public async Task<IActionResult> EditUnitData(int id, [FromBody] EditUpdateUnitDataDto editUpdateUnitDataDto)
-        {
+        { 
             var resultReturned = await _updateRepo.GetUnitDataById(id);
             _mapper.Map(editUpdateUnitDataDto, resultReturned);
             var result = await _updateRepo.EditUnitData(resultReturned);
