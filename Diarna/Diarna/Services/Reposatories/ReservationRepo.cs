@@ -68,9 +68,9 @@ namespace Diarna.Services.Reposatories
             return await _context.TblReservations.ToListAsync();
         }
          
-        public async Task<TblReservation> GetReservationByUnitId(int unitId)
+        public async Task<IEnumerable< TblReservation>> GetReservationByUnitId(int unitId)
         {
-            return await _context.TblReservations.SingleOrDefaultAsync(x => x.UnitId == unitId);
+            return await _context.TblReservations.Where(x => x.UnitId == unitId).ToListAsync();
         }
         
         public async Task<TblReservation> GetReservationByRentUserId(int rentId)
