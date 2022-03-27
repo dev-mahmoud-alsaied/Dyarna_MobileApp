@@ -45,6 +45,8 @@ namespace Diarna
             services.AddScoped<IUnitRepo,UnitRepo>();
             services.AddScoped<IBuildingRepo,BuildingRepo>();
             services.AddScoped<IReservationRepo,ReservationRepo>();
+            services.AddScoped<IReservationDateRepo,ReservationDateRepo>();
+            services.AddScoped<IRentUserRepo,RentUserRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
