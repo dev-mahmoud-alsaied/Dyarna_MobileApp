@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Diarna.DTOs.Rerservation
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CreateReservationDto
     {
 

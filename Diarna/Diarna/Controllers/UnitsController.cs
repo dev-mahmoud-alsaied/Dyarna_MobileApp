@@ -11,6 +11,9 @@ using Diarna.DTOs.Unit;
 
 namespace Diarna.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class UnitsController : ControllerBase
@@ -19,6 +22,13 @@ namespace Diarna.Controllers
         private readonly IUpdateUnitDataRepo _updateRepo;
         private readonly IBuildingRepo _buildingRepo;
         private readonly IMapper _mapper;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_repo"></param>
+        /// <param name="_mapper"></param>
+        /// <param name="_updateRepo"></param>
+        /// <param name="buildingRepo"></param>
         public UnitsController(IUnitRepo _repo, IMapper _mapper,
             IUpdateUnitDataRepo _updateRepo,
             IBuildingRepo buildingRepo
@@ -29,7 +39,10 @@ namespace Diarna.Controllers
             this._updateRepo = _updateRepo;
             _buildingRepo = buildingRepo;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllUnits")]
         public async Task<ActionResult> GetAllUnits()
         {
@@ -37,7 +50,11 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map<IEnumerable<ReadUnitDto>>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}",Name = "GetUnitById")]
         public async Task<ActionResult> GetUnitById(int id)
         {
@@ -45,7 +62,11 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map<ReadUnitDto>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unitDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddUnit([FromBody] CreateUnitDto unitDto)
         {
@@ -65,7 +86,11 @@ namespace Diarna.Controllers
                 return CreatedAtRoute(nameof(GetAllUnits), new { Id = result.Id }, mapper);
             return StatusCode(500, "No Item Added");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteUnit(int id)
         {
@@ -74,6 +99,12 @@ namespace Diarna.Controllers
                 return Ok("item Deleted Succefully");
             return StatusCode(500, "No Item Deleted");
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="unitDto"></param>
+        /// <returns></returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> EditUnit(int id, [FromBody] CreateUnitDto unitDto)
         {
@@ -98,7 +129,11 @@ namespace Diarna.Controllers
                 return CreatedAtRoute(nameof(GetAllUnits), new { Id = result.Id }, mapper);
             return StatusCode(500, "No Item Updated");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}", Name = "GetUpdateUnitDataById")]
         public async Task<ActionResult> GetUpdateUnitDataById(int id)
         {
@@ -107,7 +142,12 @@ namespace Diarna.Controllers
                 return NoContent();
             return Ok(_mapper.Map<ReadUpdateUnitDataDto>(result));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="editUpdateUnitDataDto"></param>
+        /// <returns></returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> EditUnitData(int id, [FromBody] EditUpdateUnitDataDto editUpdateUnitDataDto)
         { 

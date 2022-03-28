@@ -9,13 +9,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Diarna.Services.Reposatories
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReservationRepo : IReservationRepo
     {
         private readonly DiarnaContext _context;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_context"></param>
         public ReservationRepo(DiarnaContext _context)
         {
             this._context = _context;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblReservation"></param>
+        /// <returns></returns>
         public async Task<TblReservation> AddReservation(TblReservation tblReservation)
         {
             try
@@ -29,7 +41,12 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unitId"></param>
+        /// <param name="dateId"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteReservation(int unitId, int dateId)
         {
             try
@@ -48,7 +65,11 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblReservation"></param>
+        /// <returns></returns>
         public async Task<TblReservation> EditReservation(TblReservation tblReservation)
         {
             try
@@ -62,21 +83,38 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<TblReservation>> GetAllReservations()
         {
             return await _context.TblReservations.ToListAsync();
         }
-         
+         /// <summary>
+         /// 
+         /// </summary>
+         /// <param name="unitId"></param>
+         /// <returns></returns>
         public async Task<IEnumerable< TblReservation>> GetReservationByUnitId(int unitId)
         {
             return await _context.TblReservations.Where(x => x.UnitId == unitId).ToListAsync();
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rentId"></param>
+        /// <returns></returns>
         public async Task<TblReservation> GetReservationByRentUserId(int rentId)
         {
             return await _context.TblReservations.SingleOrDefaultAsync(x =>  x.RentUserId == rentId );
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unitId"></param>
+        /// <param name="dateId"></param>
+        /// <returns></returns>
         public async Task<TblReservation> GetReservationByUnitIdAndDateId(int unitId, int dateId)
         {
             return await _context.TblReservations.SingleOrDefaultAsync(x =>  x.UnitId == unitId && x.DateId == dateId);

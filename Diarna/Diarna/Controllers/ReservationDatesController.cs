@@ -11,18 +11,29 @@ using Diarna.DTOs.ReservationDate;
 
 namespace Diarna.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")] 
     [ApiController]
     public class ReservationDatesController : ControllerBase
     {
         private readonly IReservationDateRepo _repo;
         private readonly IMapper _mapper;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_repo"></param>
+        /// <param name="_mapper"></param>
         public ReservationDatesController(IReservationDateRepo _repo, IMapper _mapper)
         {
             this._repo = _repo;
             this._mapper = _mapper;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllReservationDates")]
         public async Task<ActionResult> GetAllReservationDates()
         {
@@ -30,7 +41,11 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map<IEnumerable<ReadReservationDateDto>>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}",Name = "GetReservationDateById")]
         public async Task<ActionResult> GetReservationDateById(int id)
         {
@@ -38,7 +53,11 @@ namespace Diarna.Controllers
             var mapper =  _mapper.Map<ReadReservationDateDto>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reservationDateDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddReservationDate([FromBody] CreateReservationDateDto reservationDateDto)
         {
@@ -53,7 +72,11 @@ namespace Diarna.Controllers
                 return CreatedAtRoute(nameof(GetAllReservationDates), new { Id = result.Id }, mapper);
             return StatusCode(500, "No Dates Added");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReservationDate(int id)
         {
@@ -62,6 +85,12 @@ namespace Diarna.Controllers
                 return Ok("Reservation Date Deleted Succefully");
             return StatusCode(500, "No Date Deleted");
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="reservationDateDto"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> EditReservation(int id,  [FromBody] CreateReservationDateDto reservationDateDto)
         {

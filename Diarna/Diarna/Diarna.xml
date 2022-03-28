@@ -4,5 +4,1867 @@
         <name>Diarna</name>
     </assembly>
     <members>
+        <member name="T:Diarna.Controllers.BuildingsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.BuildingsController.#ctor(Diarna.Services.Interfaces.IBuildingRepo,AutoMapper.IMapper,Diarna.Services.Interfaces.IVillageRepo)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+            <param name="villageRepo"></param>
+        </member>
+        <member name="M:Diarna.Controllers.BuildingsController.GetAllBuildings">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.BuildingsController.GetBuildingById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.BuildingsController.AddBuilding(Diarna.DTOs.Building.CreateBuildingDto)">
+            <summary>
+            
+            </summary>
+            <param name="buildingDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.BuildingsController.DeleteBuilding(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.BuildingsController.EditBuilding(System.Int32,Diarna.DTOs.Building.CreateBuildingDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="buildingDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.ItemsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.#ctor(Diarna.Services.Interfaces.IItemRepo,AutoMapper.IMapper,Diarna.Services.Interfaces.IItemTypeRepo)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+            <param name="_repo2"></param>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.GetAllItems">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.GetAllItemsWithDetail">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.GetAllItemsWithGeneralExpenses">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.GetItemById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.GetItemByIdWithDetail(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.AddItem(Diarna.DTOs.Item.CreateItemDto)">
+            <summary>
+            
+            </summary>
+            <param name="createItemDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.DeleteItem(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemsController.EditItem(System.Int32,Diarna.DTOs.Item.CreateItemDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="createItemDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.ItemTypesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.ItemTypesController.#ctor(Diarna.Services.Interfaces.IItemTypeRepo,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+        </member>
+        <member name="M:Diarna.Controllers.ItemTypesController.GetAllItemTypes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemTypesController.GetItemTypeById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemTypesController.AddItemType(Diarna.DTOs.ItemType.CreateItemTypeDto)">
+            <summary>
+            
+            </summary>
+            <param name="itemTypeDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemTypesController.DeleteItemType(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ItemTypesController.EditItemType(System.Int32,Diarna.DTOs.ItemType.CreateItemTypeDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="createItemTypeDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.RentedUnitsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.RentedUnitsController.#ctor(Diarna.Services.Interfaces.IRentedUnitRepo,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+        </member>
+        <member name="M:Diarna.Controllers.RentedUnitsController.GetAllRentedUnits">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentedUnitsController.GetRentedUnitById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentedUnitsController.AddRentedUnit(Diarna.DTOs.Unit.CreateRentedUnitDto)">
+            <summary>
+            
+            </summary>
+            <param name="createRentedUnitDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentedUnitsController.DeleteRentedUnit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentedUnitsController.EditRentedUnit(System.Int32,Diarna.DTOs.Unit.CreateRentedUnitDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="createRentedUnitDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.RentExpensesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.RentExpensesController.#ctor(Diarna.Services.Interfaces.IRentExpensesRepo,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+        </member>
+        <member name="M:Diarna.Controllers.RentExpensesController.GetAllRentExpenses">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentExpensesController.GetRentExpensesById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentExpensesController.GetRentExpensesByDate(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentExpensesController.AddRentExpenses(Diarna.DTOs.CreateRentExpensesDto)">
+            <summary>
+            
+            </summary>
+            <param name="createRentExpensesDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentExpensesController.DeleteRentExpenses(System.Int32,System.Int32,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="itemId"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentExpensesController.EditRentExpenses(System.Int32,Diarna.DTOs.CreateRentExpensesDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="createRentExpensesDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.RentUsersController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.RentUsersController.#ctor(Diarna.Services.Interfaces.IRentUserRepo,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+        </member>
+        <member name="M:Diarna.Controllers.RentUsersController.GetAllRentUsers">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentUsersController.GetRentUserById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentUsersController.AddRentUser(Diarna.DTOs.RentUser.CreateRentUserDto)">
+            <summary>
+            
+            </summary>
+            <param name="rentUserDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentUsersController.DeleteRentUser(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.RentUsersController.EditRentUser(System.Int32,Diarna.DTOs.RentUser.CreateRentUserDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="userDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.ReservationDatesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationDatesController.#ctor(Diarna.Services.Interfaces.IReservationDateRepo,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationDatesController.GetAllReservationDates">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationDatesController.GetReservationDateById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationDatesController.AddReservationDate(Diarna.DTOs.ReservationDate.CreateReservationDateDto)">
+            <summary>
+            
+            </summary>
+            <param name="reservationDateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationDatesController.DeleteReservationDate(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationDatesController.EditReservation(System.Int32,Diarna.DTOs.ReservationDate.CreateReservationDateDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="reservationDateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.ReservationsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationsController.#ctor(Diarna.Services.Interfaces.IReservationRepo,AutoMapper.IMapper,Diarna.Services.Interfaces.IUnitRepo,Diarna.Services.Interfaces.IRentUserRepo,Diarna.Services.Interfaces.IReservationDateRepo)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+            <param name="unitRepo"></param>
+            <param name="rentUserRepo"></param>
+            <param name="reservationDateRepo"></param>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationsController.GetAllReservations">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationsController.GetReservationByUnitId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationsController.AddReservation(Diarna.DTOs.Rerservation.CreateReservationDto)">
+            <summary>
+            
+            </summary>
+            <param name="reservationDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationsController.DeleteReservation(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="dateId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.ReservationsController.EditReservation(System.Int32,System.Int32,Diarna.DTOs.Rerservation.CreateReservationDto)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="dateId"></param>
+            <param name="reservationDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.UnitsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.UnitsController.#ctor(Diarna.Services.Interfaces.IUnitRepo,AutoMapper.IMapper,Diarna.Services.Interfaces.IUpdateUnitDataRepo,Diarna.Services.Interfaces.IBuildingRepo)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+            <param name="_updateRepo"></param>
+            <param name="buildingRepo"></param>
+        </member>
+        <member name="M:Diarna.Controllers.UnitsController.GetAllUnits">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.UnitsController.GetUnitById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.UnitsController.AddUnit(Diarna.DTOs.Unit.CreateUnitDto)">
+            <summary>
+            
+            </summary>
+            <param name="unitDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.UnitsController.DeleteUnit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.UnitsController.EditUnit(System.Int32,Diarna.DTOs.Unit.CreateUnitDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="unitDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.UnitsController.GetUpdateUnitDataById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.UnitsController.EditUnitData(System.Int32,Diarna.DTOs.Unit.EditUpdateUnitDataDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="editUpdateUnitDataDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Controllers.VillagesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.VillagesController.#ctor(Diarna.Services.Interfaces.IVillageRepo,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+        </member>
+        <member name="M:Diarna.Controllers.VillagesController.GetAllVillages">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.VillagesController.GetVillageById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.VillagesController.AddVillage(Diarna.DTOs.Village.CreateVillageDto)">
+            <summary>
+            
+            </summary>
+            <param name="villageDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.VillagesController.DeleteVillage(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Controllers.VillagesController.EditVillage(System.Int32,Diarna.DTOs.Village.CreateVillageDto)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="createVillageDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.DTOs.Building.CreateBuildingDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Building.ReadBuildingDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.ItemType.CreateItemTypeDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.ItemType.ReadItemTypeDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Item.CreateItemDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Item.ReadItemDetailDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Item.ReadItemDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.RentUser.CreateRentUserDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.RentUser.ReadRentUserDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.ReservationDate.CreateReservationDateDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.ReservationDate.ReadReservationDateDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Rerservation.CreateReservationDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Rerservation.ReadReservationDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Unit.CreateRentedUnitDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Unit.CreateUnitDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Unit.EditUpdateUnitDataDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Unit.ReadRentedUnitDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Unit.ReadUnitDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Unit.ReadUpdateUnitDataDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.CreateRentExpensesDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.ReadRentExpensesDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Village.CreateVillageDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.Village.ReadVillageDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.BuildingProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.BuildingProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.ItemProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.ItemProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.ItemTypeProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.ItemTypeProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.RentedUnitProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.RentedUnitProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.RentExpensesProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.RentExpensesProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.RentUserProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.RentUserProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.ReservationDateProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.ReservationDateProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.ReservationProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.ReservationProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.UnitProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.UnitProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.UpdateUnitDataProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.UpdateUnitDataProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.VillageProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.VillageProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IBuildingRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IBuildingRepo.GetAllBuildings">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IBuildingRepo.GetBuildingById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IBuildingRepo.GetBuildingByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IBuildingRepo.AddBuilding(Diarna.Data.Domain.TblBuilding)">
+            <summary>
+            
+            </summary>
+            <param name="tblBuilding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IBuildingRepo.EditBuilding(Diarna.Data.Domain.TblBuilding)">
+            <summary>
+            
+            </summary>
+            <param name="tblBuilding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IBuildingRepo.DeleteBuilding(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IItemRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemRepo.GetAllItems">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemRepo.GetAllItemsWithDetail">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemRepo.GetAllItemsWithGeneralExpenses">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemRepo.GetItemById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemRepo.GetItemByIdWithDetail(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemRepo.AddItem(Diarna.Data.Domain.TblItem)">
+            <summary>
+            
+            </summary>
+            <param name="tblItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemRepo.EditItem(Diarna.Data.Domain.TblItem)">
+            <summary>
+            
+            </summary>
+            <param name="tblItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemRepo.DeleteItem(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IItemTypeRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemTypeRepo.GetAllItemTypes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemTypeRepo.GetItemTypeById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemTypeRepo.AddItemType(Diarna.Data.Domain.TblItemType)">
+            <summary>
+            
+            </summary>
+            <param name="tblItemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemTypeRepo.EditItemType(Diarna.Data.Domain.TblItemType)">
+            <summary>
+            
+            </summary>
+            <param name="tblItemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IItemTypeRepo.DeleteItemType(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IRentedUnitRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentedUnitRepo.GetAllRentedUnits">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentedUnitRepo.GetRentedUnitById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentedUnitRepo.AddRentedUnit(Diarna.Data.Domain.TblRentedUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentedUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentedUnitRepo.EditRentedUnit(Diarna.Data.Domain.TblRentedUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentedUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentedUnitRepo.DeleteRentedUnit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentedUnitRepo.CheckUnitExsist(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IRentExpensesRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.GetAllRentExpenses">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.GetRentExpensesById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.GetRentExpensesByDate(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.AddRentExpenses(Diarna.Data.Domain.TblRentExpense)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.EditRentExpenses(Diarna.Data.Domain.TblRentExpense)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.DeleteRentExpenses(Diarna.Data.Domain.TblRentExpense)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.CheckUnitAndItemExsist(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.CheckUnitExsist(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentExpensesRepo.GetRentExpensesByIdAndDate(Diarna.Data.Domain.TblRentExpense)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IRentUserRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentUserRepo.GetAllRentUsers">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentUserRepo.GetRentUserById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentUserRepo.GetRentUserByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentUserRepo.GetRentUserByPhone(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="phone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentUserRepo.AddRentUser(Diarna.Data.Domain.TblRentUser)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentUserRepo.EditRentUser(Diarna.Data.Domain.TblRentUser)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentUserRepo.DeleteRentUser(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IReservationDateRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationDateRepo.GetAllReservationDates">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationDateRepo.GetReservationDateById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationDateRepo.GetReservationDateByStartDateAndEndDate(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationDateRepo.AddReservationDate(Diarna.Data.Domain.TblReservationDate)">
+            <summary>
+            
+            </summary>
+            <param name="tblReservationDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationDateRepo.EditReservationDate(Diarna.Data.Domain.TblReservationDate)">
+            <summary>
+            
+            </summary>
+            <param name="tblReservationDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationDateRepo.DeleteReservationDate(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IReservationRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationRepo.GetAllReservations">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationRepo.GetReservationByUnitId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationRepo.GetReservationByUnitIdAndDateId(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="dateId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationRepo.GetReservationByRentUserId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="rentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationRepo.AddReservation(Diarna.Data.Domain.TblReservation)">
+            <summary>
+            
+            </summary>
+            <param name="tblReservation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationRepo.EditReservation(Diarna.Data.Domain.TblReservation)">
+            <summary>
+            
+            </summary>
+            <param name="tblReservation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IReservationRepo.DeleteReservation(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="dateId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IUnitRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IUnitRepo.GetAllUnits">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IUnitRepo.GetUnitById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IUnitRepo.GetUnitByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IUnitRepo.AddUnit(Diarna.Data.Domain.TblUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IUnitRepo.EditUnit(Diarna.Data.Domain.TblUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IUnitRepo.DeleteUnit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IUpdateUnitDataRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IUpdateUnitDataRepo.GetUnitDataById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IUpdateUnitDataRepo.EditUnitData(Diarna.Data.Domain.TblUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IVillageRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IVillageRepo.GetAllVillages">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IVillageRepo.GetVillageById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IVillageRepo.GetVillageByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IVillageRepo.AddVillage(Diarna.Data.Domain.TblVillage)">
+            <summary>
+            
+            </summary>
+            <param name="tblVillage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IVillageRepo.EditVillage(Diarna.Data.Domain.TblVillage)">
+            <summary>
+            
+            </summary>
+            <param name="tblVillage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IVillageRepo.DeleteVillage(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.BuildingRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.BuildingRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.BuildingRepo.AddBuilding(Diarna.Data.Domain.TblBuilding)">
+            <summary>
+            
+            </summary>
+            <param name="tblBuilding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.BuildingRepo.DeleteBuilding(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.BuildingRepo.EditBuilding(Diarna.Data.Domain.TblBuilding)">
+            <summary>
+            
+            </summary>
+            <param name="tblBuilding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.BuildingRepo.GetAllBuildings">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.BuildingRepo.GetBuildingById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.BuildingRepo.GetBuildingByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.ItemRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.AddItem(Diarna.Data.Domain.TblItem)">
+            <summary>
+            
+            </summary>
+            <param name="tblItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.DeleteItem(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.EditItem(Diarna.Data.Domain.TblItem)">
+            <summary>
+            
+            </summary>
+            <param name="tblItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.GetAllItems">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.GetAllItemsWithDetail">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.GetAllItemsWithGeneralExpenses">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.GetItemById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemRepo.GetItemByIdWithDetail(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.ItemTypeRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemTypeRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemTypeRepo.AddItemType(Diarna.Data.Domain.TblItemType)">
+            <summary>
+            
+            </summary>
+            <param name="tblItemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemTypeRepo.DeleteItemType(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemTypeRepo.EditItemType(Diarna.Data.Domain.TblItemType)">
+            <summary>
+            
+            </summary>
+            <param name="tblItemType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemTypeRepo.GetAllItemTypes">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ItemTypeRepo.GetItemTypeById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.RentedUnitRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentedUnitRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentedUnitRepo.AddRentedUnit(Diarna.Data.Domain.TblRentedUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentedUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentedUnitRepo.DeleteRentedUnit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentedUnitRepo.EditRentedUnit(Diarna.Data.Domain.TblRentedUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentedUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentedUnitRepo.GetAllRentedUnits">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentedUnitRepo.GetRentedUnitById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentedUnitRepo.CheckUnitExsist(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.RentExpensesRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.AddRentExpenses(Diarna.Data.Domain.TblRentExpense)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.DeleteRentExpenses(Diarna.Data.Domain.TblRentExpense)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.EditRentExpenses(Diarna.Data.Domain.TblRentExpense)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.GetAllRentExpenses">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.GetRentExpensesById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.GetRentExpensesByDate(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.CheckUnitAndItemExsist(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="itemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.CheckUnitExsist(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentExpensesRepo.GetRentExpensesByIdAndDate(Diarna.Data.Domain.TblRentExpense)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.RentUserRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentUserRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentUserRepo.AddRentUser(Diarna.Data.Domain.TblRentUser)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentUserRepo.DeleteRentUser(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentUserRepo.EditRentUser(Diarna.Data.Domain.TblRentUser)">
+            <summary>
+            
+            </summary>
+            <param name="tblRentUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentUserRepo.GetAllRentUsers">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentUserRepo.GetRentUserById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentUserRepo.GetRentUserByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentUserRepo.GetRentUserByPhone(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="phone"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.ReservationDateRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationDateRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationDateRepo.AddReservationDate(Diarna.Data.Domain.TblReservationDate)">
+            <summary>
+            
+            </summary>
+            <param name="tblReservationDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationDateRepo.DeleteReservationDate(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationDateRepo.EditReservationDate(Diarna.Data.Domain.TblReservationDate)">
+            <summary>
+            
+            </summary>
+            <param name="tblReservationDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationDateRepo.GetAllReservationDates">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationDateRepo.GetReservationDateById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationDateRepo.GetReservationDateByStartDateAndEndDate(System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.ReservationRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationRepo.AddReservation(Diarna.Data.Domain.TblReservation)">
+            <summary>
+            
+            </summary>
+            <param name="tblReservation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationRepo.DeleteReservation(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="dateId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationRepo.EditReservation(Diarna.Data.Domain.TblReservation)">
+            <summary>
+            
+            </summary>
+            <param name="tblReservation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationRepo.GetAllReservations">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationRepo.GetReservationByUnitId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationRepo.GetReservationByRentUserId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="rentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.ReservationRepo.GetReservationByUnitIdAndDateId(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="unitId"></param>
+            <param name="dateId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.UnitRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UnitRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UnitRepo.AddUnit(Diarna.Data.Domain.TblUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UnitRepo.DeleteUnit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UnitRepo.EditUnit(Diarna.Data.Domain.TblUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UnitRepo.GetAllUnits">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UnitRepo.GetUnitById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UnitRepo.GetUnitByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.UpdateUnitDataRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UpdateUnitDataRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UpdateUnitDataRepo.EditUnitData(Diarna.Data.Domain.TblUnit)">
+            <summary>
+            
+            </summary>
+            <param name="tblUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.UpdateUnitDataRepo.GetUnitDataById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.VillageRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.VillageRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.VillageRepo.AddVillage(Diarna.Data.Domain.TblVillage)">
+            <summary>
+            
+            </summary>
+            <param name="tblVillage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.VillageRepo.DeleteVillage(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.VillageRepo.EditVillage(Diarna.Data.Domain.TblVillage)">
+            <summary>
+            
+            </summary>
+            <param name="tblVillage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.VillageRepo.GetAllVillages">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.VillageRepo.GetVillageById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.VillageRepo.GetVillageByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

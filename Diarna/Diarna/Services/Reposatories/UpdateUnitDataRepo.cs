@@ -9,14 +9,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Diarna.Services.Reposatories
 { 
+    /// <summary>
+    /// 
+    /// </summary>
     public class UpdateUnitDataRepo : IUpdateUnitDataRepo
     {
         private readonly DiarnaContext _context;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_context"></param>
         public UpdateUnitDataRepo(DiarnaContext _context)
         {
             this._context = _context;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblUnit"></param>
+        /// <returns></returns>
         public async Task<TblUnit> EditUnitData(TblUnit tblUnit)
         {
             try
@@ -30,7 +41,11 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<TblUnit> GetUnitDataById(int id)
         {
             return await _context.TblUnits.SingleOrDefaultAsync(x => x.Id == id);

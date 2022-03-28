@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Diarna.DTOs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReadRentExpensesDto
     {
         public int ItemId { get; set; }

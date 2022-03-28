@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Diarna.DTOs.RentUser
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReadRentUserDto
     {
         public int Id { get; set; }

@@ -11,6 +11,9 @@ using Diarna.DTOs.Item;
 
 namespace Diarna.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class ItemsController : ControllerBase
@@ -18,20 +21,32 @@ namespace Diarna.Controllers
         private readonly IItemRepo _repo;
         private readonly IItemTypeRepo _repo2;
         private readonly IMapper _mapper;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_repo"></param>
+        /// <param name="_mapper"></param>
+        /// <param name="_repo2"></param>
         public ItemsController(IItemRepo _repo, IMapper _mapper, IItemTypeRepo _repo2)
         {
             this._repo = _repo;
             this._repo2 = _repo2;
             this._mapper = _mapper;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllItems")]
         public async Task<ActionResult> GetAllItems()
         {
             var result = await _repo.GetAllItems();
             return Ok(_mapper.Map<IEnumerable<ReadItemDto>>(result));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllItemsWithDetail")]
         public async Task<ActionResult> GetAllItemsWithDetail()
         {
@@ -39,7 +54,10 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map< IEnumerable<ReadItemDetailDto>>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllItemsWithGeneralExpenses")]
         public async Task<ActionResult> GetAllItemsWithGeneralExpenses()
         {
@@ -47,7 +65,11 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map<IEnumerable<ReadItemDetailDto>>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}", Name = "GetItemById")]
         public async Task<ActionResult> GetItemById(int id)
         {
@@ -56,7 +78,11 @@ namespace Diarna.Controllers
                 return NoContent();
             return Ok(_mapper.Map<ReadItemDto>(result));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}", Name = "GetItemByIdWithDetail")]
         public async Task<ActionResult> GetItemByIdWithDetail(int id)
         {
@@ -65,7 +91,11 @@ namespace Diarna.Controllers
                 return NoContent();
             return Ok(_mapper.Map<ReadItemDetailDto>(result));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="createItemDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddItem([FromBody] CreateItemDto createItemDto)
         {
@@ -77,7 +107,11 @@ namespace Diarna.Controllers
                 return CreatedAtRoute(nameof(GetAllItems), new { Id = result.Id }, result);
             return StatusCode(500, "No Item Added");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteItem(int id)
         {
@@ -86,7 +120,12 @@ namespace Diarna.Controllers
                 return Ok("item Deleted Succefully");
             return StatusCode(500, "No Item Deleted");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="createItemDto"></param>
+        /// <returns></returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> EditItem(int id, [FromBody] CreateItemDto createItemDto)
         {

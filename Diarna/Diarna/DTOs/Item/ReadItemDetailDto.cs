@@ -8,6 +8,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Diarna.DTOs.Item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReadItemDetailDto
     {
         public int Id { get; set; }

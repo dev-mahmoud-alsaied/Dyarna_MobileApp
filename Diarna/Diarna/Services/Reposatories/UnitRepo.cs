@@ -8,14 +8,26 @@ using Diarna.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Diarna.Services.Reposatories
-{ 
+{
+    /// <summary>
+    /// 
+    /// </summary>
     public class UnitRepo : IUnitRepo
     {
         private readonly DiarnaContext _context;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_context"></param>
         public UnitRepo(DiarnaContext _context)
         {
             this._context = _context;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblUnit"></param>
+        /// <returns></returns>
         public async Task<TblUnit> AddUnit(TblUnit tblUnit)
         {
             try
@@ -29,7 +41,11 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.InnerException.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteUnit(int id)
         {
             try
@@ -48,7 +64,11 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblUnit"></param>
+        /// <returns></returns>
         public async Task<TblUnit> EditUnit(TblUnit tblUnit)
         {
             try
@@ -62,17 +82,28 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<TblUnit>> GetAllUnits()
         {
             return await _context.TblUnits.ToListAsync();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<TblUnit> GetUnitById(int id)
         {
             return await _context.TblUnits.SingleOrDefaultAsync(x => x.Id == id);
         }
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public async Task<TblUnit> GetUnitByName(string name)
         {
             return await _context.TblUnits.SingleOrDefaultAsync(x => x.Name == name);

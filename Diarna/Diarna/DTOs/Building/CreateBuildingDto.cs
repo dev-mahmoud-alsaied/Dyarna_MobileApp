@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Diarna.DTOs.Building
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CreateBuildingDto
     {
 
