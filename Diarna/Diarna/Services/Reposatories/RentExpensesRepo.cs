@@ -16,30 +16,28 @@ namespace Diarna.Services.Reposatories
         {
             this._context = _context;
         }
-        public Task<TblRentExpense> AddRentExpenses(TblRentExpense tblRentExpense)
+        public async Task<TblRentExpense> AddRentExpenses(TblRentExpense tblRentExpense)
         {
-            /*try
+            try
             {
-                var result = await _context.TblRentedUnits.AddAsync(tblRentedUnit);
+                var result = await _context.TblRentExpenses.AddAsync(tblRentExpense);
                 await _context.SaveChangesAsync();
                 return result.Entity;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-            }*/
-            throw new NotImplementedException();
+            }
         }
 
-        public  Task<bool> DeleteRentExpenses(int id)
+        public async Task<bool> DeleteRentExpenses(TblRentExpense tblRentExpense)
         {
-            throw new NotImplementedException();
-            /*try
+            try
             {
-                var result = await GetRentExpensesById(null,null);
+                var result = await GetRentExpensesByIdAndDate(tblRentExpense);
                 if (result != null)
                 {
-                    _context.TblRentedUnits.Remove(result);
+                    _context.TblRentExpenses.Remove(result);
                     await _context.SaveChangesAsync();
                     return true;
                 }
@@ -48,22 +46,21 @@ namespace Diarna.Services.Reposatories
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-            }*/
+            }
         }
 
-        public  Task<TblRentExpense> EditRentExpenses(TblRentExpense tblRentExpense)
+        public async Task<TblRentExpense> EditRentExpenses(TblRentExpense tblRentExpense)
         {
-            throw new NotImplementedException();
-            /*try
+            try
             {
-                _context.Entry(tblRentedUnit).State = EntityState.Modified;
+                _context.Entry(tblRentExpense).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
-                return tblRentedUnit;
+                return tblRentExpense;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-            }*/
+            }
         }
 
         public async Task<IEnumerable<TblRentExpense>> GetAllRentExpenses()
@@ -71,15 +68,35 @@ namespace Diarna.Services.Reposatories
             return await _context.TblRentExpenses.Include(x => x.Unit).Include(x => x.Item).ToListAsync();
         }
 
-        public async Task<IEnumerable<TblRentExpense>> GetRentExpensesById(int unitId,int? itemId)
+        public async Task<IEnumerable<TblRentExpense>> GetRentExpensesById(int unitId)
         {
                 return await _context.TblRentExpenses.Include(x => x.Unit).Include(x => x.Item)
-                .Where(x => x.UnitId == unitId && x.ItemId == itemId).ToListAsync();
+                .Where(x => x.UnitId == unitId).ToListAsync();
         }
 
-        /*public async Task<TblRentedUnit> CheckUnitExsist(int unitId)
+        public async Task<IEnumerable<TblRentExpense>> GetRentExpensesByDate(DateTime startDate, DateTime endDate)
         {
-            return await _context.TblRentedUnits.FirstOrDefaultAsync(x => x.UnitId == unitId);
-        }*/
+            return await _context.TblRentExpenses.Include(x => x.Unit).Include(x => x.Item)
+            .Where(x => x.Date >= DateTime.Parse(startDate.ToShortDateString()) && x.Date <= DateTime.Parse(endDate.ToShortDateString())).ToListAsync();
+        }
+
+        public int CheckUnitAndItemExsist(int unitId,int itemId)
+        {
+            var result = _context.TblRentExpenses.Where(x => x.UnitId == unitId && x.ItemId == itemId).ToList();
+            return result.Count;
+        }
+
+        public int CheckUnitExsist(int unitId)
+        {
+            var result = _context.TblRentExpenses.Where(x => x.UnitId == unitId).ToList();
+            return result.Count;
+        }
+
+        public async Task<TblRentExpense> GetRentExpensesByIdAndDate(TblRentExpense tblRentExpense)
+        {
+            var result = await _context.TblRentExpenses.SingleOrDefaultAsync(x => x.ItemId == tblRentExpense.ItemId
+            && x.UnitId == tblRentExpense.UnitId && x.Date == DateTime.Parse(tblRentExpense.Date.ToShortDateString()));
+            return result;
+        }
     }
 }

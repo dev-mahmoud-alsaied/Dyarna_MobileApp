@@ -10,6 +10,5 @@ namespace Diarna.DTOs.Item
         public int Id { get; set; }
         public string Name { get; set; }
         public bool GeneralExpenses { get; set; }
-        public int? ItemtypeId { get; set; }
     }
 }

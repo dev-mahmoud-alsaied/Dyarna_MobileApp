@@ -31,52 +31,72 @@ namespace Diarna.Controllers
         }
 
         [HttpGet("{unitId}", Name = "GetRentExpensesById")]
-        public async Task<ActionResult> GetRentExpensesById(int unitId, int itemId)
+        public async Task<ActionResult> GetRentExpensesById(int unitId)
         {
-            var result = await _repo.GetRentExpensesById(unitId, itemId);
+            var result = await _repo.GetRentExpensesById(unitId);
             if (result == null)
                 return NoContent();
-            return Ok(_mapper.Map< IEnumerable<ReadRentExpensesDto>>(result));
+            return Ok(_mapper.Map<IEnumerable<ReadRentExpensesDto>>(result));
         }
 
-        /*[HttpPost]
-        public async Task<IActionResult> AddRentedUnit([FromBody] CreateRentedUnitDto createRentedUnitDto)
+        [HttpGet("{startDate:datetime}/{endDate:datetime}", Name = "GetRentExpensesByDate")]
+        public async Task<ActionResult> GetRentExpensesByDate(DateTime startDate, DateTime endDate)
         {
-            var resultChecked = await _repo.CheckUnitExsist((int)createRentedUnitDto.UnitId);
-            if (createRentedUnitDto.DeliveryPrice <= 0 || createRentedUnitDto.UnitId <= 0 ||
-                (resultChecked != null && DateTime.Compare(DateTime.Parse(DateTime.Now.ToShortDateString()), (DateTime)resultChecked.RentEndDate) <= 0))
-                return BadRequest();
-            var result = await _repo.AddRentedUnit(_mapper.Map<TblRentedUnit>(createRentedUnitDto));
-            if (result != null)
+            var result = await _repo.GetRentExpensesByDate(startDate, endDate);
+            if (result == null)
+                return NoContent();
+            return Ok(_mapper.Map<IEnumerable<ReadRentExpensesDto>>(result));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddRentExpenses([FromBody] CreateRentExpensesDto createRentExpensesDto)
+        {
+            if(createRentExpensesDto.ItemId > 0 && createRentExpensesDto.UnitId > 0 
+                && createRentExpensesDto.ItemValue > 0 && createRentExpensesDto.Date != null)
             {
-                var returnedData = await _repo.GetRentedUnitById(result.Id);
-                return Ok(_mapper.Map<ReadRentedUnitDto>(returnedData));
+                var resultChecked = _repo.CheckUnitAndItemExsist(createRentExpensesDto.UnitId, createRentExpensesDto.ItemId);
+                if (resultChecked == 0)
+                    return BadRequest();
+                var result = await _repo.AddRentExpenses(_mapper.Map<TblRentExpense>(createRentExpensesDto));
+                if (result != null)
+                {
+                    var returnedData = await _repo.GetRentExpensesById(result.UnitId);
+                    return Ok(_mapper.Map<IEnumerable<ReadRentExpensesDto>>(returnedData));
+                }
+                return StatusCode(500, "No Item Added");
             }
             return StatusCode(500, "No Item Added");
-        }*/
+        }
 
-        /*[HttpDelete("{id:int}",Name = "GetRentedUnitById")]
-        public async Task<IActionResult> DeleteRentedUnit(int id)
+        [HttpDelete("{unitId:int}/{itemId:int}/{date:datetime}")]
+        public async Task<IActionResult> DeleteRentExpenses(int unitId,int itemId,DateTime date)
         {
-            var result = await _repo.DeleteRentedUnit(id);
+            TblRentExpense tblRentExpense = new TblRentExpense();
+            tblRentExpense.UnitId = unitId;
+            tblRentExpense.ItemId = itemId;
+            tblRentExpense.Date = DateTime.Parse(date.ToShortDateString());
+            var result = await _repo.DeleteRentExpenses(tblRentExpense);
             if (result)
                 return Ok("item Deleted Succefully");
             return StatusCode(500, "No Item Deleted");
-        }*/
+        }
 
-        /*[HttpPut("{id:int}")]
-        public async Task<IActionResult> EditRentedUnit(int id, [FromBody] CreateRentedUnitDto createRentedUnitDto)
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> EditRentExpenses(int id, [FromBody] CreateRentExpensesDto createRentExpensesDto)
         {
-            var resultChecked = await _repo.CheckUnitExsist((int)createRentedUnitDto.UnitId);
-            if (createRentedUnitDto.DeliveryPrice <= 0 || createRentedUnitDto.UnitId <= 0 || resultChecked != null)
+            var resultChecked = _repo.CheckUnitExsist(createRentExpensesDto.UnitId);
+            if (resultChecked == 0)
                 return BadRequest();
-            var resultReturned = await _repo.GetRentedUnitById(id);
-            _mapper.Map(createRentedUnitDto, resultReturned);
-            var result = await _repo.EditRentedUnit(resultReturned);
-            var mapper = _mapper.Map<ReadRentedUnitDto>(result);
+            var resultReturned = await _repo.GetRentExpensesByIdAndDate(_mapper.Map<TblRentExpense>(createRentExpensesDto));
+            if(resultReturned == null)
+                return BadRequest();
+            _mapper.Map(createRentExpensesDto, resultReturned);
+            resultReturned.Date = DateTime.Parse(resultReturned.Date.ToShortDateString());
+            var result = await _repo.EditRentExpenses(resultReturned);
+            var mapper = _mapper.Map<ReadRentExpensesDto>(result);
             if (mapper != null)
-                return CreatedAtRoute(nameof(GetRentedUnitById), new { Id = result.Id }, mapper);
+                return CreatedAtRoute(nameof(GetRentExpensesById), new { unitId = result.UnitId }, mapper);
             return StatusCode(500, "No Item Updated");
-        }*/
+        }
     }
 }
