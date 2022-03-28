@@ -36,7 +36,8 @@ namespace Diarna.Controllers
         public async Task<ActionResult> GetAllItemsWithDetail()
         {
             var result = await _repo.GetAllItemsWithDetail();
-            return Ok(result);
+            var mapper = _mapper.Map< IEnumerable<ReadItemDetailDto>>(result);
+            return Ok(mapper);
         }
 
         [HttpGet(Name = "GetAllItemsWithGeneralExpenses")]
@@ -70,7 +71,7 @@ namespace Diarna.Controllers
         {
             var checkResult = await _repo2.GetItemTypeById((int)createItemDto.ItemtypeId);
             if (checkResult == null)
-                return BadRequest();
+                return StatusCode(404, "please enter item type");
             var result = await _repo.AddItem(_mapper.Map<TblItem>(createItemDto));
             if (result != null)
                 return CreatedAtRoute(nameof(GetAllItems), new { Id = result.Id }, result);
