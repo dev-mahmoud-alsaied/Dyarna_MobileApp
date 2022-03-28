@@ -11,25 +11,40 @@ using Diarna.DTOs.Unit;
 
 namespace Diarna.Controllers 
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class RentedUnitsController : ControllerBase
     {
         private readonly IRentedUnitRepo _repo;
         private readonly IMapper _mapper;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_repo"></param>
+        /// <param name="_mapper"></param>
         public RentedUnitsController(IRentedUnitRepo _repo, IMapper _mapper)
         {
             this._repo = _repo;
             this._mapper = _mapper;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllRentedUnits")]
         public async Task<ActionResult> GetAllRentedUnits()
         {
             var result = await _repo.GetAllRentedUnits();
             return Ok(_mapper.Map<IEnumerable<ReadRentedUnitDto>>(result));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}")]
         public async Task<ActionResult> GetRentedUnitById(int id)
         {
@@ -38,7 +53,11 @@ namespace Diarna.Controllers
                 return NoContent();
             return Ok(_mapper.Map<ReadRentedUnitDto>(result));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="createRentedUnitDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddRentedUnit([FromBody] CreateRentedUnitDto createRentedUnitDto)
         {
@@ -54,7 +73,11 @@ namespace Diarna.Controllers
             }
             return StatusCode(500, "No Item Added");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id:int}",Name = "GetRentedUnitById")]
         public async Task<IActionResult> DeleteRentedUnit(int id)
         {
@@ -63,7 +86,12 @@ namespace Diarna.Controllers
                 return Ok("item Deleted Succefully");
             return StatusCode(500, "No Item Deleted");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="createRentedUnitDto"></param>
+        /// <returns></returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> EditRentedUnit(int id, [FromBody] CreateRentedUnitDto createRentedUnitDto)
         {

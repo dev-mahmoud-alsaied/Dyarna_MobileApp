@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Diarna.DTOs.ReservationDate
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReadReservationDateDto
     {
         public DateTime StartDate { get; set; }

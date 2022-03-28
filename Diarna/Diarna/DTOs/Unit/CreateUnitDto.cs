@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Diarna.DTOs.Unit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CreateUnitDto
     {
         public string Name { get; set; }

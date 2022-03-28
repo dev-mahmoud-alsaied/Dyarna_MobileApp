@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Diarna.DTOs.ItemType
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReadItemTypeDto
     {
         public int Id { get; set; }

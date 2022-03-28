@@ -11,6 +11,9 @@ using Diarna.DTOs.Building;
 
 namespace Diarna.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")] 
     [ApiController]
     public class BuildingsController : ControllerBase
@@ -18,13 +21,22 @@ namespace Diarna.Controllers
         private readonly IBuildingRepo _repo;
         private readonly IVillageRepo _villageRepo;
         private readonly IMapper _mapper;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_repo"></param>
+        /// <param name="_mapper"></param>
+        /// <param name="villageRepo"></param>
         public BuildingsController(IBuildingRepo _repo, IMapper _mapper, IVillageRepo villageRepo)
         {
             this._repo = _repo;
             this._mapper = _mapper;
             _villageRepo = villageRepo;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllBuildings")]
         public async Task<ActionResult> GetAllBuildings()
         {
@@ -32,7 +44,11 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map<IEnumerable<ReadBuildingDto>>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}",Name = "GetBuildingById")]
         public async Task<ActionResult> GetBuildingById(int id)
         {
@@ -40,7 +56,11 @@ namespace Diarna.Controllers
             var mapper =  _mapper.Map<ReadBuildingDto>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="buildingDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddBuilding([FromBody] CreateBuildingDto buildingDto)
         {
@@ -60,7 +80,11 @@ namespace Diarna.Controllers
                 return CreatedAtRoute(nameof(GetAllBuildings), new { Id = result.Id }, mapper);
             return StatusCode(500, "No Item Added");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBuilding(int id)
         {
@@ -69,6 +93,12 @@ namespace Diarna.Controllers
                 return Ok("item Deleted Succefully");
             return StatusCode(500, "No Item Deleted");
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="buildingDto"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> EditBuilding(int id, [FromBody] CreateBuildingDto buildingDto)
         {

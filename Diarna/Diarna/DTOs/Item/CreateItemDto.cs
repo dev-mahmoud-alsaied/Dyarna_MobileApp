@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Diarna.DTOs.Item
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CreateItemDto
     {
         [Required]

@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Diarna.DTOs.ItemType
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CreateItemTypeDto
     {
         public string Name { get; set; }

@@ -8,14 +8,26 @@ using Diarna.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Diarna.Services.Reposatories
-{ 
+{
+    /// <summary>
+    /// 
+    /// </summary>
     public class ItemTypeRepo : IItemTypeRepo
     {
         private readonly DiarnaContext _context;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_context"></param>
         public ItemTypeRepo(DiarnaContext _context)
         {
             this._context = _context;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblItemType"></param>
+        /// <returns></returns>
         public async Task<TblItemType> AddItemType(TblItemType tblItemType)
         {
             try
@@ -29,7 +41,11 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteItemType(int id)
         {
             try
@@ -48,7 +64,11 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblItemType"></param>
+        /// <returns></returns>
         public async Task<TblItemType> EditItemType(TblItemType tblItemType)
         {
             try
@@ -62,12 +82,19 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<TblItemType>> GetAllItemTypes()
         {
             return await _context.TblItemTypes.ToListAsync();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<TblItemType> GetItemTypeById(int id)
         {
             return await _context.TblItemTypes.SingleOrDefaultAsync(x => x.Id == id);

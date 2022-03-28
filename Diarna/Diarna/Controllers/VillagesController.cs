@@ -11,18 +11,29 @@ using Diarna.DTOs.Village;
 
 namespace Diarna.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class VillagesController : ControllerBase
     {
         private readonly IVillageRepo _repo;
         private readonly IMapper _mapper;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_repo"></param>
+        /// <param name="_mapper"></param>
         public VillagesController(IVillageRepo _repo, IMapper _mapper)
         {
             this._repo = _repo;
             this._mapper = _mapper;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllVillages")]
         public async Task<ActionResult> GetAllVillages()
         {
@@ -30,7 +41,11 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map<IEnumerable<ReadVillageDto>>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}",Name = "GetVillageById")]
         public async Task<ActionResult> GetVillageById(int id)
         {
@@ -38,7 +53,11 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map<ReadVillageDto>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="villageDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddVillage([FromBody] CreateVillageDto villageDto)
         {
@@ -53,7 +72,11 @@ namespace Diarna.Controllers
                 return CreatedAtRoute(nameof(GetAllVillages), new { Id = result.Id }, mapper);
             return StatusCode(500, "No Item Added");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteVillage(int id)
         {
@@ -62,7 +85,12 @@ namespace Diarna.Controllers
                 return Ok("item Deleted Succefully");
             return StatusCode(500, "No Item Deleted");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="createVillageDto"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> EditVillage(int id, [FromBody] CreateVillageDto createVillageDto)
         {

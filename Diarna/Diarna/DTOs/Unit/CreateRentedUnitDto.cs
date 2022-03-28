@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Diarna.DTOs.Unit
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CreateRentedUnitDto
     {
         [Required]

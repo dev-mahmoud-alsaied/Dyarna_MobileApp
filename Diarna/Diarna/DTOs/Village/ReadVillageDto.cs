@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Diarna.DTOs.Village
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReadVillageDto
     {
         public int Id { get; set; }

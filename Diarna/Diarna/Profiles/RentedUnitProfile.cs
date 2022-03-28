@@ -8,8 +8,14 @@ using Diarna.Data.Domain;
 
 namespace Diarna.Profiles
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class RentedUnitProfile : Profile
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public RentedUnitProfile()
         {
             CreateMap<CreateRentedUnitDto, TblRentedUnit>();

@@ -8,14 +8,26 @@ using Diarna.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Diarna.Services.Reposatories
-{ 
+{
+    /// <summary>
+    /// 
+    /// </summary>
     public class RentedUnitRepo : IRentedUnitRepo
     {
         private readonly DiarnaContext _context;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_context"></param>
         public RentedUnitRepo(DiarnaContext _context)
         {
             this._context = _context;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblRentedUnit"></param>
+        /// <returns></returns>
         public async Task<TblRentedUnit> AddRentedUnit(TblRentedUnit tblRentedUnit)
         {
             try
@@ -29,7 +41,11 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<bool> DeleteRentedUnit(int id)
         {
             try
@@ -48,7 +64,11 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblRentedUnit"></param>
+        /// <returns></returns>
         public async Task<TblRentedUnit> EditRentedUnit(TblRentedUnit tblRentedUnit)
         {
             try
@@ -62,17 +82,28 @@ namespace Diarna.Services.Reposatories
                 throw new Exception(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<TblRentedUnit>> GetAllRentedUnits()
         {
             return await _context.TblRentedUnits.Include(x => x.Unit).ToListAsync();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<TblRentedUnit> GetRentedUnitById(int id)
         {
             return await _context.TblRentedUnits.Include(x => x.Unit).SingleOrDefaultAsync(x => x.Id == id);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unitId"></param>
+        /// <returns></returns>
         public async Task<TblRentedUnit> CheckUnitExsist(int unitId)
         {
             return await _context.TblRentedUnits.FirstOrDefaultAsync(x => x.UnitId == unitId);

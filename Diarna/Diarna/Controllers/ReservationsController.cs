@@ -11,6 +11,9 @@ using Diarna.DTOs.Rerservation;
 
 namespace Diarna.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")] 
     [ApiController]
     public class ReservationsController : ControllerBase
@@ -20,6 +23,14 @@ namespace Diarna.Controllers
         private readonly IRentUserRepo _rentUserRepo;
         private readonly IReservationDateRepo _reservationDateRepo;
         private readonly IMapper _mapper;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_repo"></param>
+        /// <param name="_mapper"></param>
+        /// <param name="unitRepo"></param>
+        /// <param name="rentUserRepo"></param>
+        /// <param name="reservationDateRepo"></param>
         public ReservationsController(IReservationRepo _repo,
             IMapper _mapper,
             IUnitRepo unitRepo,
@@ -33,7 +44,10 @@ namespace Diarna.Controllers
             _rentUserRepo = rentUserRepo;
             _reservationDateRepo = reservationDateRepo;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet(Name = "GetAllReservations")]
         public async Task<ActionResult> GetAllReservations()
         {
@@ -41,7 +55,11 @@ namespace Diarna.Controllers
             var mapper = _mapper.Map<IEnumerable<ReadReservationDto>>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unitId"></param>
+        /// <returns></returns>
         [HttpGet("{unitId}",Name = "GetReservationByUnitId")]
         public async Task<ActionResult> GetReservationByUnitId(int unitId)
         {
@@ -49,7 +67,11 @@ namespace Diarna.Controllers
             var mapper =  _mapper.Map<IEnumerable<ReadReservationDto>>(result);
             return Ok(mapper);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reservationDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> AddReservation([FromBody] CreateReservationDto reservationDto)
         {
@@ -79,7 +101,12 @@ namespace Diarna.Controllers
                 return CreatedAtRoute(nameof(GetAllReservations), new { Id = result.UnitId }, mapper);
             return StatusCode(500, "No Reservation Added");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unitId"></param>
+        /// <param name="dateId"></param>
+        /// <returns></returns>
         [HttpDelete("{unitId}, {dateId}")]
         public async Task<IActionResult> DeleteReservation(int unitId, int dateId)
         {
@@ -88,6 +115,13 @@ namespace Diarna.Controllers
                 return Ok("Reservation Deleted Succefully");
             return StatusCode(500, "No Reservation Deleted");
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="unitId"></param>
+        /// <param name="dateId"></param>
+        /// <param name="reservationDto"></param>
+        /// <returns></returns>
         [HttpPut("{unitId}, {dateId}")]
         public async Task<IActionResult> EditReservation(int unitId, int dateId,  [FromBody] CreateReservationDto reservationDto)
         {
