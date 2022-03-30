@@ -270,6 +270,18 @@
             <param name="createRentExpensesDto"></param>
             <returns></returns>
         </member>
+        <member name="T:Diarna.Controllers.RentSharesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Controllers.RentSharesController.#ctor(Diarna.Services.Interfaces.IRentShareRepo,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="_repo"></param>
+            <param name="_mapper"></param>
+        </member>
         <member name="T:Diarna.Controllers.RentUsersController">
             <summary>
             
@@ -562,6 +574,16 @@
             
             </summary>
         </member>
+        <member name="T:Diarna.DTOs.RentShare.CreateRentSharesDto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.DTOs.RentShare.ReadRentSharesDto">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Diarna.DTOs.RentUser.CreateRentUserDto">
             <summary>
             
@@ -688,6 +710,16 @@
             </summary>
         </member>
         <member name="M:Diarna.Profiles.RentExpensesProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Diarna.Profiles.RentShareProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Profiles.RentShareProfile.#ctor">
             <summary>
             
             </summary>
@@ -1008,6 +1040,59 @@
             
             </summary>
             <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Interfaces.IRentShareRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentShareRepo.GetAllRentShares">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentShareRepo.GetRentShareByShareId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="shareId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentShareRepo.GetRentShareByUserShareId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="userShareId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentShareRepo.AddRentShare(Diarna.Data.Domain.TblShare)">
+            <summary>
+            
+            </summary>
+            <param name="tblShare"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentShareRepo.EditRentShare(Diarna.Data.Domain.TblShare)">
+            <summary>
+            
+            </summary>
+            <param name="tblShare"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentShareRepo.DeleteRentShare(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Interfaces.IRentShareRepo.CheckUserShareExsist(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="userShareId"></param>
             <returns></returns>
         </member>
         <member name="T:Diarna.Services.Interfaces.IRentUserRepo">
@@ -1562,6 +1647,65 @@
             
             </summary>
             <param name="tblRentExpense"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Diarna.Services.Reposatories.RentShareRepo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentShareRepo.#ctor(Diarna.Data.DiarnaContext)">
+            <summary>
+            
+            </summary>
+            <param name="_context"></param>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentShareRepo.AddRentShare(Diarna.Data.Domain.TblShare)">
+            <summary>
+            
+            </summary>
+            <param name="tblShare"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentShareRepo.DeleteRentShare(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentShareRepo.EditRentShare(Diarna.Data.Domain.TblShare)">
+            <summary>
+            
+            </summary>
+            <param name="tblShare"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentShareRepo.GetAllRentShares">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentShareRepo.GetRentShareByUserShareId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentShareRepo.GetRentShareByShareId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Diarna.Services.Reposatories.RentShareRepo.CheckUserShareExsist(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="userShareId"></param>
             <returns></returns>
         </member>
         <member name="T:Diarna.Services.Reposatories.RentUserRepo">

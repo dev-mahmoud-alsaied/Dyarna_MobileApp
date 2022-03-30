@@ -50,6 +50,7 @@ namespace Diarna
             services.AddScoped<IReservationRepo,ReservationRepo>();
             services.AddScoped<IReservationDateRepo,ReservationDateRepo>();
             services.AddScoped<IRentUserRepo,RentUserRepo>();
+            services.AddScoped<IRentShareRepo, RentShareRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddSwaggerGen(
