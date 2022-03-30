@@ -78,7 +78,7 @@ namespace Diarna.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("{id:int}",Name = "GetRentedUnitById")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteRentedUnit(int id)
         {
             var result = await _repo.DeleteRentedUnit(id);
