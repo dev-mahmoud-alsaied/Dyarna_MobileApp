@@ -21,6 +21,7 @@ namespace Diarna.Profiles
             CreateMap<CreateReservationDto, TblReservation>();
             CreateMap<TblReservation, ReadReservationDto>();
             CreateMap<ReadReservationDto, TblReservation>();
+            CreateMap<ReserveUnitDto, CreateReservationDto>();
         }
     }
 }
