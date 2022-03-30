@@ -79,6 +79,9 @@ namespace Diarna.Controllers
         [HttpPost]
         public async Task<ActionResult> ReserveUnit([FromBody] ReserveUnitDto reserveUnit)
         {
+            if (reserveUnit.DepositValue <= 0 || reserveUnit.InsuranceValue <= 0
+                || DateTime.Compare(DateTime.Parse(reserveUnit.StartDate.ToShortDateString()),DateTime.Parse(reserveUnit.EndDate.ToShortDateString())) >= 1)
+                return BadRequest();
             //find user first
             var checkUser = await _rentUserRepo.GetRentUserByPhone(reserveUnit.Mobile);
             if(checkUser == null)
@@ -116,9 +119,13 @@ namespace Diarna.Controllers
                 var mapper = _mapper.Map<CreateReservationDto>(reserveUnit);
                 mapper.DateId = checkDate.Id;
                 mapper.RentUserId = checkUser.Id;
+                mapper.ConfirmReservation = 1;
                 var addReservation = await _repo.AddReservation(_mapper.Map<TblReservation>(mapper)); 
                 if(addReservation != null)
-                    return CreatedAtRoute(nameof(GetAllReservations), new { Id = addReservation.UnitId }, addReservation);
+                {
+                    var finalMapping = _mapper.Map<ReadReservationDto>(addReservation);
+                    return CreatedAtRoute(nameof(GetAllReservations), new { Id = addReservation.UnitId }, finalMapping);
+                }
                 return StatusCode(500, "No Reservation Added");
             }
             return StatusCode(500, "The unit is already reserved in this date");

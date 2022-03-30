@@ -12,8 +12,12 @@ namespace Diarna.DTOs.Rerservation
     {
 
         public int UnitId { get; set; }
+        public string UnitName { get; set; }
         public int? RentUserId { get; set; }
+        public string RentUserName { get; set; }
         public int DateId { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public decimal? InsuranceValue { get; set; }
         public decimal? TotalValue { get; set; }
         public decimal? DepositValue { get; set; }
