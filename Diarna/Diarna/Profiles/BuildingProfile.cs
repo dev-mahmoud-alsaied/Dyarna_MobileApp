@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Diarna.DTOs.Rerservation;
+using Diarna.DTOs.Building;
 using Diarna.Data.Domain;
 
 namespace Diarna.Profiles
@@ -18,9 +18,9 @@ namespace Diarna.Profiles
         /// </summary>
         public BuildingProfile()
         {
-            CreateMap<CreateReservationDto, TblBuilding>();
-            CreateMap<TblBuilding, ReadReservationDto>();
-            CreateMap<ReadReservationDto, TblBuilding>();
+            CreateMap<CreateBuildingDto, TblBuilding>();
+            CreateMap<TblBuilding, ReadBuildingDto>();
+            CreateMap<ReadBuildingDto, TblBuilding>();
         }
     }
 }
