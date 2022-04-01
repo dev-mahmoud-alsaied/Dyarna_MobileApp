@@ -598,6 +598,15 @@
             
             </summary>
         </member>
+        <member name="M:Diarna.DTOs.CustomValidations.ValidateDateAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            التحقق من التاريخ الابتدائي والنهائي  
+            وتوضع فوق التاريخ الابتدائي
+            </summary>
+            <param name="value"></param>
+            <param name="validationContext"></param>
+            <returns>check of two dates</returns>
+        </member>
         <member name="T:Diarna.DTOs.ItemType.CreateItemTypeDto">
             <summary>
             
