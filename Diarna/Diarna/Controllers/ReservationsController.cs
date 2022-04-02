@@ -10,6 +10,7 @@ using AutoMapper;
 using Diarna.DTOs.Rerservation;
 using Diarna.DTOs.RentUser;
 using Diarna.DTOs.ReservationDate;
+using System.ComponentModel.DataAnnotations;
 
 namespace Diarna.Controllers
 {
@@ -79,49 +80,52 @@ namespace Diarna.Controllers
         [HttpPost]
         public async Task<ActionResult> ReserveUnit([FromBody] ReserveUnitDto reserveUnit)
         {
-            if (reserveUnit.DepositValue <= 0 || reserveUnit.InsuranceValue <= 0
-                || DateTime.Compare(DateTime.Parse(reserveUnit.StartDate.ToShortDateString()),DateTime.Parse(reserveUnit.EndDate.ToShortDateString())) >= 1)
-                return BadRequest();
+            //check for model first 
+            if (!ModelState.IsValid)
+            {
+                return Ok(reserveUnit);
+            }
+
             //find user first
             var checkUser = await _rentUserRepo.GetRentUserByPhone(reserveUnit.Mobile);
-            if(checkUser == null)
+            if (checkUser == null)
             {
-                var newUser = new CreateRentUserDto { Mobile = reserveUnit.Mobile, Name = reserveUnit.RentUserName };
+                //var newUser = new CreateRentUserDto { Mobile = reserveUnit.Mobile, Name = reserveUnit.RentUserName };
+                var newUser = _mapper.Map<CreateRentUserDto>(reserveUnit);
                 var insert = await _rentUserRepo.AddRentUser(_mapper.Map<TblRentUser>(newUser));
                 if (insert == null)
                 {
-
                     return StatusCode(500, "There is an error when add new User");
-                } 
+                }
                 checkUser = insert;
-                
             }
             // find date 
-            var checkDate = await _reservationDateRepo.GetReservationDateByStartDateAndEndDate(reserveUnit.StartDate, reserveUnit.EndDate); 
-            if(checkDate == null)
+            var checkDate = await _reservationDateRepo.GetReservationDateByStartDateAndEndDate(reserveUnit.StartDate, reserveUnit.EndDate);
+            if (checkDate == null)
             {
-                var newDate = new CreateReservationDateDto { StartDate = reserveUnit.StartDate, EndDate = reserveUnit.EndDate };
-                var insert = await _reservationDateRepo.AddReservationDate(_mapper.Map<TblReservationDate>(newDate)); 
-                if(insert == null)
+                var newDate = _mapper.Map<CreateReservationDateDto>(reserveUnit);
+                //var newDate = new CreateReservationDateDto { StartDate = reserveUnit.StartDate, EndDate = reserveUnit.EndDate };
+                var insert = await _reservationDateRepo.AddReservationDate(_mapper.Map<TblReservationDate>(newDate));
+                if (insert == null)
                 {
                     return StatusCode(500, "There is an error when add new date");
                 }
-                checkDate = insert;  
+                checkDate = insert;
             }
 
-            var checkUnit = await _unitRepo.GetUnitById(reserveUnit.UnitId); 
-            if(checkUnit == null)
+            var checkUnit = await _unitRepo.GetUnitById(reserveUnit.UnitId);
+            if (checkUnit == null)
                 return StatusCode(500, "There is no unit with this id");
             //check unit is not reserved in this date 
             var checkReservation = await _repo.GetReservationByUnitIdAndDateId(reserveUnit.UnitId, checkDate.Id);
-            if(checkReservation == null)
+            if (checkReservation == null)
             {
                 var mapper = _mapper.Map<CreateReservationDto>(reserveUnit);
                 mapper.DateId = checkDate.Id;
                 mapper.RentUserId = checkUser.Id;
                 mapper.ConfirmReservation = 1;
-                var addReservation = await _repo.AddReservation(_mapper.Map<TblReservation>(mapper)); 
-                if(addReservation != null)
+                var addReservation = await _repo.AddReservation(_mapper.Map<TblReservation>(mapper));
+                if (addReservation != null)
                 {
                     var finalMapping = _mapper.Map<ReadReservationDto>(addReservation);
                     return CreatedAtRoute(nameof(GetAllReservations), new { Id = addReservation.UnitId }, finalMapping);
