@@ -39,6 +39,12 @@ namespace Diarna.Data
         public virtual DbSet<TblUnitsShare> TblUnitsShares { get; set; }
         public virtual DbSet<TblUserShare> TblUserShares { get; set; }
         public virtual DbSet<TblVillage> TblVillages { get; set; }
+        public virtual DbSet<TblGovernorate> TblGovernorates { get; set; }
+        public virtual DbSet<TblVillageImages> TblVillageImages { get; set; }
+        public virtual DbSet<TblBuildingImages> TblBuildingImages { get; set; }
+        public virtual DbSet<TblUnitImages> TblUnitImages { get; set; }
+        public virtual DbSet<TblUnitDamages> TblUnitDamages { get; set; }
+       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -604,6 +610,7 @@ namespace Diarna.Data
                     .HasColumnName("name");
             });
 
+           
             OnModelCreatingPartial(modelBuilder);
         }
 
